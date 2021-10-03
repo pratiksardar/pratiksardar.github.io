@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import Bounce from './Bounce'
+import React from 'react'
 
 const Hero = () => {
     return (
