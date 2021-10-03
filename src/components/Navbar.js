@@ -7,7 +7,7 @@ const Navbar = () => {
         role='navigation'
         >
             <Link to="/" className="pl-8">
-                ME
+                ✨ 
             </Link>
             <div className="px-4 cursor-pointer md:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" 
