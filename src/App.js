@@ -5,7 +5,8 @@ import React from 'react';
 // import Home from './home';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-
+import Particles from 'react-particles-js';
+import particlesConfig from './components/particlesConfig';
 // class App extends React.Component {
 //   render() {
 //       return (
@@ -43,9 +44,13 @@ import Hero from './components/Hero';
 function App() {
   return (
     <>
-      <Navbar />
-      <Hero /> 
-    </>  
+        <div style={{ position: 'absolute'}}>
+        <Particles height="100vh" width="100vw" params={particlesConfig} />
+        </div>
+        <Navbar />
+        <Hero />
+    </>
+
   );
 }
 
