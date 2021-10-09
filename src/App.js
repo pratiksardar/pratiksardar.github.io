@@ -1,12 +1,17 @@
 import './App.css';
 import React from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Content from './components/Content';
+import Particles from 'react-particles-js';
+import particlesConfig from './components/particlesConfig';
+import ReactGA from 'react-ga';
+import RouteChangeTracker from './components/RouteChangeTracker';
+ReactGA.initialize('UA-289192892');
+
 // import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 // import About from './About';
 // import Home from './home';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Particles from 'react-particles-js';
-import particlesConfig from './components/particlesConfig';
 // class App extends React.Component {
 //   render() {
 //       return (
@@ -49,6 +54,8 @@ function App() {
         </div>
         <Navbar />
         <Hero />
+        <RouteChangeTracker />
+        {/* <Content /> */}
     </>
 
   );
