@@ -1,63 +1,50 @@
-import './App.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Content from './components/Content';
-import Particles from 'react-particles-js';
-import particlesConfig from './components/particlesConfig';
-import ReactGA from 'react-ga';
-import RouteChangeTracker from './components/RouteChangeTracker';
-ReactGA.initialize('UA-289192892');
+import { Switch, Route } from 'react-router-dom';
+import Home from './pages';
+import Contact from './pages/contact';
+import Menu from './pages/menu';
+import Footer from './components/footer';
+import Dropdown from './components/Dropdown';
 
-// import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-// import About from './About';
-// import Home from './home';
-// class App extends React.Component {
-//   render() {
-//       return (
-//         <div className="App">
-//           <BrowserRouter>
-//           <div>
-//             <nav>
-//               <ul id="navigation">
-//                 {/* <li>
-//                   <Link to="/">Home</Link>
-//                 </li>
-//                 <li>
-//                 <Link to="/about">About</Link>
-//                 </li>
-//                 <li>
-//                 <Link to="/contact">Contact</Link>
-//                 </li> */}
-//               </ul>
-//             </nav>
-//           </div>
-          
-//             <Switch>
-//             <Route exact path="/">
-//               <Home />
-//             </Route>
-//             <Route path="/about">
-//               <About />
-//             </Route>
-//           </Switch>
-//           </BrowserRouter>
-//           </div>
-//             );
-//   }
-// }
+import RouteChangeTracker from './components/RouteChangeTracker';
+import ReactGA from 'react-ga';
+ReactGA.initialize('289192892');
+
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    const hideMenu = () => {
+      if (window.innerWidth > 768 && isOpen) {
+        setIsOpen(false);
+        console.log('i resized');
+      }
+    };
+
+    window.addEventListener('resize', hideMenu);
+
+    return () => {
+      window.removeEventListener('resize', hideMenu);
+    };
+  });
+
   return (
     <>
-        <div style={{ position: 'absolute'}}>
-        <Particles height="100vh" width="100vw" params={particlesConfig} />
-        </div>
-        <Navbar />
-        <Hero />
-        <RouteChangeTracker />
-        {/* <Content /> */}
+      <Navbar toggle={toggle} />
+      <Dropdown isOpen={isOpen} toggle={toggle} />
+      <Switch>
+        <Route path='/' exact component={Home} />
+        <Route path='/menu' component={Menu} />
+        <Route path='/contact' component={Contact} />
+      </Switch>
+      <RouteChangeTracker />
+      <Footer />
     </>
-
   );
 }
 
