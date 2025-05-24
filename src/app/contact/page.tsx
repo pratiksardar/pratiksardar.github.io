@@ -26,19 +26,19 @@ export default function Contact() {
         </motion.div>
       </Link>
       <section className="my-16 container mx-auto px-6 min-h-[60vh] flex flex-col items-center relative z-10">
-        <h1 className="text-4xl font-bold mb-4 text-amber-400">Contact</h1>
-        <div className="flex flex-col md:flex-row w-full max-w-3xl items-center md:items-start mb-12">
+        <h1 style={{ fontFamily: 'Nasalization, sans-serif' }} className="text-4xl font-bold mb-20 mt-8 text-amber-400">Hit Me Up</h1>
+        <div className="flex flex-col md:flex-row w-full max-w-3xl items-center md:items-center justify-center mb-12">
           {/* Profile and Socials */}
-          <div className="flex flex-col items-center md:items-start md:w-1/2 mb-8 md:mb-0">
+          <div className="flex flex-col items-center md:w-1/2 mb-8 md:mb-0">
             <motion.div
-              className="w-40 h-40 rounded-full overflow-hidden mb-4"
-              initial={{ opacity: 0, scale: 0.8 }}
+              className="w-40 h-40 rounded-full overflow-hidden mb-4 flex justify-center items-center"
+              initial={{ opacity: 0, scale: 0.7 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 2.5 }}
+              transition={{ duration: 3 }}
             >
               <Image src="https://iili.io/3tPQ3S1.md.jpg" alt="Profile" className="w-full h-full object-cover" width={160} height={160} />
             </motion.div>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 justify-center">
               <motion.a 
                 href="https://github.com/pratiksardar" 
                 target="_blank" 
