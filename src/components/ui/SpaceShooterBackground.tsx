@@ -75,6 +75,7 @@ export default function SpaceShooterBackground() {
 
     // Draw neon shapes
     function neonRect(x: number, y: number, w: number, h: number, color: string) {
+      if (!ctx) return;
       ctx.save();
       ctx.shadowColor = color;
       ctx.shadowBlur = 18;
@@ -83,6 +84,7 @@ export default function SpaceShooterBackground() {
       ctx.restore();
     }
     function neonTriangle(x: number, y: number, w: number, h: number, color: string) {
+      if (!ctx) return;
       ctx.save();
       ctx.shadowColor = color;
       ctx.shadowBlur = 18;
@@ -96,6 +98,7 @@ export default function SpaceShooterBackground() {
       ctx.restore();
     }
     function drawBackground() {
+      if (!ctx) return;
       const gradient = ctx.createLinearGradient(0, 0, width, height);
       gradient.addColorStop(0, '#1a0033');
       gradient.addColorStop(0.3, '#0fffc1');
@@ -118,6 +121,7 @@ export default function SpaceShooterBackground() {
       }
     }
     function drawScore() {
+      if (!ctx) return;
       ctx.save();
       ctx.font = 'bold 32px Orbitron, monospace';
       ctx.textAlign = 'center';
@@ -141,6 +145,7 @@ export default function SpaceShooterBackground() {
       }
     }
     function drawLives() {
+      if (!ctx) return;
       ctx.save();
       ctx.font = 'bold 20px Orbitron, monospace';
       ctx.textAlign = 'left';
@@ -151,13 +156,13 @@ export default function SpaceShooterBackground() {
       ctx.restore();
     }
     function drawGameOver() {
+      if (!ctx) return;
       ctx.save();
       ctx.font = 'bold 48px Orbitron, monospace';
       ctx.textAlign = 'center';
       ctx.shadowColor = '#ff00cc';
       ctx.shadowBlur = 32;
       ctx.fillStyle = '#fff';
-
       ctx.restore();
       ctx.save();
       ctx.font = 'bold 28px Orbitron, monospace';
