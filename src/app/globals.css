@@ -47,7 +47,7 @@ section, .glass-section {
 
 @font-face {
   font-family: 'Open Sans';
-  src: url('/portfolio/fonts/OpenSans-Light.ttf') format('truetype');
+  src: url('/fonts/OpenSans-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -55,4 +55,8 @@ section, .glass-section {
 
 .test-clepto {
   font-family: 'Clepto', sans-serif !important;
+}
+
+section[id] {
+  scroll-margin-top: 64px;
 }

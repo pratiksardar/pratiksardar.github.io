@@ -42,6 +42,12 @@ const Header = () => {
               </span>
               <span className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-green-500/20 to-emerald-400/20 blur-lg group-hover:blur-xl transition-all duration-300 rounded-full"></span>
             </Link>
+            <Link href="/activity" className="group relative text-white hover:text-transparent transition-all duration-300">
+              <span className="relative z-10 bg-gradient-to-r from-fuchsia-400 via-pink-500 to-fuchsia-400 bg-clip-text group-hover:from-fuchsia-500 group-hover:via-pink-600 group-hover:to-fuchsia-500">
+                &lt;/activity&gt;
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-fuchsia-400/20 via-pink-500/20 to-fuchsia-400/20 blur-lg group-hover:blur-xl transition-all duration-300 rounded-full"></span>
+            </Link>
             <Link href="/contact" className="group relative text-white hover:text-transparent transition-all duration-300">
               <span className="relative z-10 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 bg-clip-text group-hover:from-amber-500 group-hover:via-orange-600 group-hover:to-amber-500">
                 &lt;/contact&gt;
