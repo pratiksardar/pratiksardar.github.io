@@ -31,7 +31,7 @@ section, .glass-section {
 
 @font-face {
   font-family: 'Clepto';
-  src: url('/portfolio/fonts/Clepto-Regular.ttf') format('truetype');
+  src: url('/fonts/Clepto-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -39,7 +39,7 @@ section, .glass-section {
 
 @font-face {
   font-family: 'Nasalization';
-  src: url('/portfolio/fonts/NasalizationRg.otf') format('opentype');
+  src: url('/fonts/NasalizationRg.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
