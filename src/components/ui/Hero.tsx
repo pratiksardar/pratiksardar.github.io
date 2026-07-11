@@ -117,11 +117,35 @@ export default function Hero() {
           <motion.h1
             style={{ fontFamily: 'Nasalization, sans-serif' }}
             className="font-sora text-5xl sm:text-7xl font-extrabold text-center md:text-left mb-4 bg-gradient-to-r from-indigo-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent drop-shadow-lg"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2 }}
+            initial={{ opacity: 0, y: 40, scale: 0.5, rotate: -10 }}
+            animate={{ 
+              opacity: 1, 
+              y: 0, 
+              scale: 1,
+              rotate: 0,
+              transition: {
+                duration: 1.5,
+                ease: [0.6, -0.05, 0.01, 0.99],
+                opacity: { duration: 0.8 },
+                scale: { duration: 1.2 },
+                rotate: { duration: 1 }
+              }
+            }}
           >
-            Pratik Sardar
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
+              Pratik
+            </motion.span>{" "}
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.8 }}
+            >
+              Sardar
+            </motion.span>
           </motion.h1>
           <motion.p
             className="font-inter text-lg sm:text-xl text-gray-300 text-center md:text-left max-w-2xl mb-10"

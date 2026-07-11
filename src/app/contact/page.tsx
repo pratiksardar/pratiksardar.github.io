@@ -32,9 +32,9 @@ export default function Contact() {
           <div className="flex flex-col items-center md:w-1/2 mb-8 md:mb-0">
             <motion.div
               className="w-40 h-40 rounded-full overflow-hidden mb-4 flex justify-center items-center"
-              initial={{ opacity: 0, scale: 0.7 }}
+              initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 3 }}
+              transition={{ duration: 2.5 }}
             >
               <Image src="https://iili.io/3tPQ3S1.md.jpg" alt="Profile" className="w-full h-full object-cover" width={160} height={160} />
             </motion.div>
