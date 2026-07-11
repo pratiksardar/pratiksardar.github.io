@@ -3,6 +3,7 @@ import { Marcellus, Cormorant_Garamond, Manrope } from "next/font/google";
 import Scene5 from "./Scene5";
 import GodFace from "./GodFace";
 import Reveal from "./Reveal";
+import MobileDelight from "./MobileDelight";
 import "./v5.css";
 
 const marcellus = Marcellus({ weight: "400", subsets: ["latin"], variable: "--font-display" });
@@ -81,11 +82,13 @@ const channels = [
   { label: "LinkedIn", href: "https://linkedin.com/in/pratiksardar" },
   { label: "X", href: "https://x.com/pratik_sardar" },
   { label: "Farcaster", href: "https://farcaster.com/0xpratik" },
+  { label: "Résumé", href: "/Pratik-Sardar.pdf" },
 ];
 
 export default function V5() {
   return (
     <div className={`oly ${marcellus.variable} ${cormorant.variable} ${manrope.variable}`}>
+      <MobileDelight />
       <div className="oly-blobs" aria-hidden="true" />
 
       {/* ——— hero ——— */}
@@ -110,6 +113,9 @@ export default function V5() {
               <span>2 US patents</span>
               <span>3 industries</span>
               <span>~50% faster with agents</span>
+              <a className="oly-chip-cta" href="/Pratik-Sardar.pdf" target="_blank" rel="noopener noreferrer">
+                résumé ↓
+              </a>
             </p>
           </Reveal>
         </div>

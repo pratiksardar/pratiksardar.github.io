@@ -50,6 +50,9 @@ body:has(.oly) > nav {
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  /* gyro parallax (vars set by MobileDelight; 0 on desktop) */
+  transform: translate3d(calc(var(--tilt-x, 0) * 1.6px), calc(var(--tilt-y, 0) * 1.6px), 0);
+  transition: transform 0.35s ease-out;
   background:
     radial-gradient(38rem 30rem at 12% 8%, rgba(200, 190, 233, 0.4), transparent 65%),
     radial-gradient(34rem 28rem at 88% 20%, rgba(245, 200, 178, 0.38), transparent 65%),
@@ -159,6 +162,22 @@ body:has(.oly) > nav {
   background: var(--card);
   backdrop-filter: blur(6px);
 }
+.oly-chip-cta {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.95rem;
+  border: 1px solid var(--lilac-deep);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--lilac-deep);
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.oly-chip-cta:hover {
+  background: var(--lilac-deep);
+  color: var(--alabaster);
+}
 
 /* ——— greek-key divider ——— */
 .oly-meander {
@@ -187,6 +206,9 @@ body:has(.oly) > nav {
   opacity: 0.55;
   pointer-events: none;
   z-index: 0;
+  /* gyro parallax — counter-drifts against the blobs for depth */
+  transform: translate3d(calc(var(--tilt-x, 0) * -2.4px), calc(var(--tilt-y, 0) * -2.4px), 0);
+  transition: transform 0.35s ease-out;
 }
 .oly-god-right {
   right: calc(-1 * clamp(1rem, 4vw, 4rem));
@@ -443,13 +465,66 @@ body:has(.oly) > nav {
     gap: 0.35rem;
   }
   .oly-god {
-    width: 180px;
-    opacity: 0.3;
+    width: 220px;
+    opacity: 0.4;
     top: 1.5rem;
   }
   /* ponytail: 3D scene is desktop-only — blobs + god faces carry mobile */
   .oly-scene {
     display: none;
+  }
+  /* scroll thread: a lilac→copper line fills as you read (scroll-timeline browsers only) */
+  .oly::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    z-index: 60;
+    background: linear-gradient(90deg, var(--lilac-deep), var(--peach-deep));
+    transform-origin: 0 50%;
+    transform: scaleX(0);
+  }
+  @supports (animation-timeline: scroll()) {
+    .oly::before {
+      animation: oly-progress linear both;
+      animation-timeline: scroll();
+    }
+  }
+}
+
+@keyframes oly-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ——— tap-bloom petals (spawned by MobileDelight) ——— */
+.oly-petal {
+  position: fixed;
+  z-index: 50;
+  width: 14px;
+  height: 14px;
+  border-radius: 100% 0;
+  pointer-events: none;
+  opacity: 0;
+  animation: oly-petal 1.6s ease-out forwards;
+}
+@keyframes oly-petal {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg) scale(0.6);
+  }
+  15% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--drift, 0px), -130px) rotate(220deg) scale(1);
   }
 }
 
