@@ -1,0 +1,482 @@
+/* ————————————————————————————————————————————————
+   /v5 — "Olympus" · light pastel neo-classical prototype
+   alabaster #FAF6F0 · ink #33303B · lilac #C8BEE9
+   peach #F5C8B2 · sage #C2D6BE · sky #BFD6EA · sand #E8D5A8
+—————————————————————————————————————————————————— */
+
+body:has(.oly) {
+  background: #faf6f0;
+}
+body:has(.oly) > nav {
+  display: none;
+}
+
+.oly {
+  --alabaster: #faf6f0;
+  --ink: #33303b;
+  --muted: #7d7787;
+  --lilac: #c8bee9;
+  --lilac-deep: #6f5fae;
+  --peach: #f5c8b2;
+  --peach-deep: #b96e4b;
+  --sage: #c2d6be;
+  --sage-deep: #5f7f58;
+  --sky: #bfd6ea;
+  --sand: #e8d5a8;
+  --card: rgba(255, 255, 255, 0.62);
+  --hairline: rgba(51, 48, 59, 0.14);
+
+  position: relative;
+  overflow-x: clip;
+  font-family: var(--font-body), sans-serif;
+  color: var(--ink);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.oly ::selection {
+  background: var(--lilac);
+  color: var(--ink);
+}
+
+.oly a:focus-visible {
+  outline: 2px solid var(--lilac-deep);
+  outline-offset: 3px;
+}
+
+/* ——— ambient pastel atmosphere ——— */
+.oly-blobs {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(38rem 30rem at 12% 8%, rgba(200, 190, 233, 0.4), transparent 65%),
+    radial-gradient(34rem 28rem at 88% 20%, rgba(245, 200, 178, 0.38), transparent 65%),
+    radial-gradient(40rem 34rem at 80% 78%, rgba(191, 214, 234, 0.42), transparent 65%),
+    radial-gradient(30rem 26rem at 8% 88%, rgba(194, 214, 190, 0.4), transparent 65%);
+}
+
+.oly-hero,
+.oly-section,
+.oly-contact {
+  position: relative;
+  z-index: 1;
+}
+
+/* ——— typography ——— */
+.oly h1,
+.oly h2,
+.oly h3 {
+  font-family: var(--font-display), serif;
+  font-weight: 400;
+}
+
+.oly h2 {
+  font-size: clamp(1.9rem, 4.2vw, 3rem);
+  line-height: 1.12;
+  margin: 0 0 2.5rem;
+  letter-spacing: 0.01em;
+}
+
+.oly em {
+  font-family: var(--font-flourish), serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.06em;
+  color: var(--lilac-deep);
+}
+
+.oly-kicker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--peach-deep);
+  margin: 0 0 1rem;
+}
+
+/* ——— hero ——— */
+.oly-hero {
+  min-height: 94vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1.5rem;
+}
+
+.oly-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.oly-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+}
+
+.oly-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+}
+
+.oly-hero h1 {
+  font-size: clamp(3.4rem, 10vw, 7rem);
+  line-height: 1.02;
+  letter-spacing: 0.03em;
+  margin: 0 0 1.5rem;
+}
+
+.oly-thesis {
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  max-width: 34rem;
+  margin: 0 auto 2rem;
+  color: var(--ink);
+}
+
+.oly-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0;
+}
+.oly-chips span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.95rem;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  background: var(--card);
+  backdrop-filter: blur(6px);
+}
+
+/* ——— greek-key divider ——— */
+.oly-meander {
+  position: relative;
+  z-index: 1;
+  height: 12px;
+  max-width: 72rem;
+  margin: 0 auto;
+  opacity: 0.3;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12' viewBox='0 0 24 12'%3E%3Cpath d='M0 1 H23 V11 H8 V5 H18 V8 H13' fill='none' stroke='%2333303B' stroke-width='1.4'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+}
+
+/* ——— sections ——— */
+.oly-section {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: clamp(4rem, 9vw, 7rem) clamp(1.5rem, 5vw, 3rem);
+}
+
+/* ——— revolving god faces ——— */
+.oly-god {
+  position: absolute;
+  top: 4rem;
+  width: clamp(220px, 26vw, 380px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+.oly-god-right {
+  right: calc(-1 * clamp(1rem, 4vw, 4rem));
+}
+.oly-god-left {
+  left: calc(-1 * clamp(1rem, 4vw, 4rem));
+}
+.oly-god-face {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.oly-god-orbit {
+  position: absolute;
+  inset: -12%;
+  width: 124%;
+  height: 124%;
+  color: inherit;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  opacity: 0.6;
+}
+
+/* ——— odyssey timeline ——— */
+.oly-timeline {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0;
+}
+.oly-stop {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 1.5rem;
+  padding: 1.6rem 0;
+  border-top: 1px dashed var(--hairline);
+}
+.oly-years {
+  font-family: var(--font-display), serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--peach-deep);
+}
+.oly-stop h3 {
+  font-size: 1.25rem;
+  margin: 0 0 0.4rem;
+}
+.oly-stop h3 small {
+  display: block;
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+.oly-stop p {
+  margin: 0;
+  max-width: 46rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* ——— AEGIS feature ——— */
+.oly-aegis {
+  position: relative;
+  z-index: 1;
+  border-radius: 26px;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 2rem;
+  background:
+    linear-gradient(120deg, rgba(200, 190, 233, 0.55), rgba(245, 200, 178, 0.5) 50%, rgba(191, 214, 234, 0.55)),
+    var(--card);
+  border: 1px solid var(--hairline);
+  text-align: center;
+}
+.oly-aegis-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  margin: 0 0 1.25rem;
+}
+.oly-aegis h3 {
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  letter-spacing: 0.22em;
+  margin: 0;
+}
+.oly-aegis-flourish {
+  font-family: var(--font-flourish), serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.35rem;
+  color: var(--lilac-deep);
+  margin: 0.25rem 0 1.25rem;
+}
+.oly-aegis-desc {
+  max-width: 38rem;
+  margin: 0 auto 1.5rem;
+  font-size: 1rem;
+}
+.oly-aegis-chips {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0;
+  flex-wrap: wrap;
+}
+.oly-aegis-chips span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--hairline);
+}
+
+/* ——— labors grid ——— */
+.oly-labors {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.oly-labor {
+  height: 100%;
+  background: var(--card);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--hairline);
+  border-radius: 20px;
+  padding: 1.4rem 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.oly-labor:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px -18px rgba(51, 48, 59, 0.25);
+}
+.oly-labor-private {
+  background: linear-gradient(150deg, rgba(200, 190, 233, 0.35), rgba(255, 255, 255, 0.65));
+}
+.oly-labor-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--lilac-deep);
+  margin: 0 0 0.5rem;
+}
+.oly-labor h4 {
+  font-family: var(--font-display), serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin: 0 0 0.4rem;
+}
+.oly-labor p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+/* ——— decrees ——— */
+.oly-decrees {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.oly-decrees article {
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: 20px;
+  padding: 1.75rem;
+}
+.oly-decrees span {
+  font-family: var(--font-display), serif;
+  font-size: 2rem;
+  color: var(--sage-deep);
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.oly-decrees p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ——— contact ——— */
+.oly-contact {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: clamp(4rem, 9vw, 7rem) clamp(1.5rem, 5vw, 3rem) 3.5rem;
+  text-align: center;
+}
+.oly-contact-sub {
+  color: var(--muted);
+  max-width: 30rem;
+  margin: -1rem auto 2.25rem;
+}
+.oly-channels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+.oly-channels a {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.65rem 1.5rem;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  background: var(--card);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.oly-channels a:hover {
+  background: var(--lilac);
+  transform: translateY(-2px);
+}
+.oly-colophon {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ——— responsive ——— */
+@media (max-width: 60rem) {
+  .oly-labors {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 44rem) {
+  .oly-labors,
+  .oly-decrees {
+    grid-template-columns: 1fr;
+  }
+  .oly-stop {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+  .oly-god {
+    width: 180px;
+    opacity: 0.3;
+    top: 1.5rem;
+  }
+  /* ponytail: 3D scene is desktop-only — blobs + god faces carry mobile */
+  .oly-scene {
+    display: none;
+  }
+}
+
+/* ——— entrance reveal (CSS-only) ——— */
+.oly-reveal {
+  opacity: 0;
+  animation: oly-rise 0.7s cubic-bezier(0.22, 0.8, 0.3, 1) forwards;
+}
+@keyframes oly-rise {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ——— reduced motion ——— */
+@media (prefers-reduced-motion: reduce) {
+  .oly-reveal {
+    animation: none;
+    opacity: 1;
+  }
+  .oly-labor,
+  .oly-channels a {
+    transition: none;
+  }
+}

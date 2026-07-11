@@ -1,0 +1,383 @@
+/* ————————————————————————————————————————————————
+   /v3 — dark warm cinematic-editorial prototype
+   espresso #161210 · ivory #F3EDE3 · copper #C87F3B
+   moss #93A98D · ash #9A9086
+—————————————————————————————————————————————————— */
+
+body:has(.hx) {
+  background: #161210;
+}
+body:has(.hx) > nav {
+  display: none;
+}
+
+.hx {
+  --void: #161210;
+  --pane: #1d1815;
+  --ivory: #f3ede3;
+  --copper: #c87f3b;
+  --moss: #93a98d;
+  --ash: #9a9086;
+  --line: rgba(243, 237, 227, 0.14);
+
+  font-family: var(--font-body), sans-serif;
+  background: var(--void);
+  color: var(--ivory);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hx ::selection {
+  background: var(--copper);
+  color: var(--void);
+}
+
+.hx a {
+  color: var(--ivory);
+  text-decoration: none;
+  border-bottom: 1px solid var(--copper);
+  transition: color 0.2s, background 0.2s;
+}
+.hx a:hover {
+  background: var(--copper);
+  color: var(--void);
+}
+.hx a:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 3px;
+}
+
+.hx-kicker {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin: 0 0 1.5rem;
+}
+
+.hx h2 {
+  font-family: var(--font-display), serif;
+  font-weight: 400;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.15;
+  margin: 0 0 1.75rem;
+  max-width: 24ch;
+}
+.hx h2 em,
+.hx-thesis em,
+.hx h3 em,
+.hx-manifesto em {
+  font-style: italic;
+  color: var(--copper);
+}
+
+.hx section,
+.hx-hero,
+.hx-contact {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 5vw, 3rem);
+  border-bottom: 1px solid var(--line);
+}
+
+/* ——— hero ——— */
+.hx-hero {
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hx-eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin: 0 0 2rem;
+}
+
+.hx-heal h1 {
+  font-family: var(--font-display), serif;
+  font-weight: 350;
+  font-size: clamp(3.5rem, 12vw, 8.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.25rem;
+  white-space: nowrap;
+}
+.hx-heal span {
+  display: inline-block;
+  min-width: 0.22em; /* keeps the word space from collapsing */
+  transform: translate(var(--dx), var(--dy)) rotate(var(--r));
+  transition: transform 0.55s cubic-bezier(0.2, 1.2, 0.3, 1), color 0.55s;
+  transition-delay: calc(var(--i) * 45ms);
+  color: var(--ash);
+}
+.hx-heal.is-healed span {
+  transform: none;
+  color: var(--ivory);
+}
+.hx-heal.is-instant span {
+  transition: none;
+}
+
+.hx-heal-log {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8125rem;
+  color: var(--ash);
+  margin: 0 0 2.5rem;
+  min-height: 1.4em;
+}
+.hx-ok {
+  color: var(--moss);
+}
+
+.hx-thesis {
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.375rem, 3vw, 2rem);
+  font-weight: 350;
+  line-height: 1.35;
+  max-width: 26ch;
+  margin: 0 0 2.25rem;
+}
+
+.hx-stats {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  color: var(--ash);
+  margin: 0;
+}
+
+/* ——— practice ——— */
+.hx-manifesto {
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.25rem, 2.6vw, 1.75rem);
+  font-weight: 350;
+  line-height: 1.5;
+  max-width: 36ch;
+  margin: 0 0 2.5rem;
+}
+
+.hx-principles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.hx-principles li {
+  font-size: 0.9375rem;
+  color: var(--ash);
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+.hx-principles strong {
+  display: block;
+  color: var(--ivory);
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+/* ——— agent log ——— */
+.hx-terminal {
+  background: var(--pane);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.5rem 1.75rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8125rem;
+  line-height: 2;
+  max-width: 44rem;
+}
+.hx-terminal p {
+  margin: 0;
+  color: var(--ivory);
+}
+.hx-t-actor {
+  display: inline-block;
+  min-width: 4.5rem;
+  color: var(--copper);
+}
+.hx-agentnote {
+  color: var(--ash);
+  max-width: 44rem;
+  margin: 1.5rem 0 0;
+  font-size: 0.9375rem;
+}
+
+/* ——— record ——— */
+.hx-chapter {
+  display: grid;
+  grid-template-columns: 16rem 1fr;
+  gap: 1rem 3rem;
+  padding: 2.25rem 0;
+  border-top: 1px solid var(--line);
+}
+.hx-chapter-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--ash);
+}
+.hx-chapter-meta span:first-child {
+  color: var(--copper);
+}
+.hx-chapter h3 {
+  grid-column: 2;
+  grid-row: 1;
+  font-family: var(--font-display), serif;
+  font-weight: 400;
+  font-size: clamp(1.375rem, 2.8vw, 1.875rem);
+  line-height: 1.25;
+  margin: 0 0 0.75rem;
+  max-width: 26ch;
+}
+.hx-chapter p {
+  grid-column: 2;
+  margin: 0;
+  color: var(--ash);
+  font-size: 0.9375rem;
+  max-width: 56ch;
+}
+
+/* ——— patents ——— */
+.hx-patents ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 44rem;
+}
+.hx-patents li {
+  display: flex;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--line);
+  font-size: 1rem;
+}
+.hx-patent-date {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--copper);
+  flex-shrink: 0;
+}
+
+/* ——— after hours ——— */
+.hx-after ul {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+}
+.hx-after li {
+  display: flex;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 0.9rem 0.5rem;
+  border-top: 1px solid var(--line);
+  transition: background 0.2s, padding-left 0.25s;
+}
+.hx-after li:hover {
+  background: var(--pane);
+  padding-left: 1rem;
+}
+.hx-after strong {
+  min-width: 10rem;
+  font-weight: 600;
+}
+.hx-after span {
+  color: var(--ash);
+  font-size: 0.9375rem;
+}
+.hx-afternote {
+  font-size: 0.875rem;
+  color: var(--ash);
+  margin: 0;
+}
+
+/* ——— contact ——— */
+.hx-contact {
+  border-bottom: none;
+  padding-bottom: 4rem;
+}
+.hx-contact h2 {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+}
+.hx-contact ul {
+  list-style: none;
+  margin: 0 0 3.5rem;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.875rem;
+}
+.hx-contact li {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+}
+.hx-contact li > span {
+  min-width: 6.5rem;
+  color: var(--ash);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.hx-colophon {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  color: var(--ash);
+  margin: 0;
+}
+
+/* ——— responsive ——— */
+@media (max-width: 48rem) {
+  .hx-heal h1 {
+    white-space: normal;
+  }
+  .hx-principles {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .hx-chapter {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .hx-chapter h3,
+  .hx-chapter p {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .hx-chapter-meta {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .hx-after li {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .hx-patents li {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+}
+
+/* ——— reduced motion ——— */
+@media (prefers-reduced-motion: reduce) {
+  .hx-heal span,
+  .hx-after li {
+    transition: none;
+  }
+}
